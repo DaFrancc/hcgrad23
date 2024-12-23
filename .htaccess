@@ -1,6 +1,5 @@
-DirectoryIndex index.html
-<FilesMatch "\.(ttf|otf|eot)$">
-    <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    </IfModule>
-</FilesMatch>
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php

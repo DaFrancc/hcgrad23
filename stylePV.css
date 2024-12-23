@@ -1,0 +1,173 @@
+@font-face {
+    font-family: 'Motiva';
+    src: url('fonts/web_fonts/motiva/MotivaSansExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Motiva', sans-serif;
+}
+
+html {
+    background-color: #1a1a1a;
+}
+
+#title {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #CCCCCC;
+    margin-left: 2em;
+}
+
+#top-bar {
+    position: fixed;
+    display: grid;
+    justify-items: end;
+    align-items: center;
+    z-index: 20;
+    width: 100%;
+    height: 5em;
+}
+
+#header {
+    width: 100%;
+    height: 5em;
+}
+
+#download-all-button {
+    background-color: #379eff;
+    border-radius: .25em;
+    box-shadow: 0 0 .5em #00000067;
+    padding: .75em 1.5em .75em 1.5em;
+    margin-left: 2em;
+    font-size: 1em;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#viewer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+#transparent-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #00000088;
+}
+
+#viewpanel {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+@media (orientation: portrait) {
+    #selected-img {
+        height: auto;
+        width: 90%;
+        object-fit: contain;
+        z-index: 10;
+    }
+
+    .action-button svg {
+        fill: #999999;
+        width: 85px;
+        height: 85px;
+    }
+    .spacing {
+        padding: 3em;
+    }
+}
+
+@media (orientation: landscape) {
+    #selected-img {
+        height: 90%;
+        width: auto;
+        object-fit: contain;
+        z-index: 10;
+    }
+
+    .action-button svg {
+        fill: #999999;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .spacing {
+        padding: 1em;
+    }
+}
+
+#photogrid {
+    display: grid;
+    gap: .2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.grid-item button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+}
+
+.grid-item button:hover::before {
+  opacity: 1;
+}
+
+.image-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gridimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lazyimage {
+    opacity: 0;
+}
+
+.action-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.action-button svg:hover {
+    fill: #CCCCCC;
+}
